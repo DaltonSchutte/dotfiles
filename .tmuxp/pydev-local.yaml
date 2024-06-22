@@ -1,0 +1,7 @@
+session_name: pydev-local
+windows:
+  - window_name: dev
+    layout: main-vertical
+    panes:
+      - vim .
+      - git status
