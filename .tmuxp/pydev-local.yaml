@@ -1,4 +1,7 @@
 session_name: pydev-local
+starting_directory: ./
+shell_command_before:
+  - 'source env/bin/activate'
 windows:
   - window_name: dev
     layout: main-vertical
