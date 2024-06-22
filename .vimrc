@@ -27,6 +27,7 @@ Plugin 'neovimhaskell/haskell-vim'
 Plugin 'thedenisnikulin/vim-cyberpunk'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+Plugin 'untitled-ai/jupyter_ascending.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
