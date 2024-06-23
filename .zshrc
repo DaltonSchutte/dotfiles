@@ -25,15 +25,21 @@ source $ZSH/oh-my-zsh.sh
 
 
 ## ALIASES
-
-alias python=python3.10
-alias start_neo4j="sudo neo4j start"
-alias stop_neo4j="sudo neo4j stop"
-alias restart_neo4j="sudo neo4j restart"
+# General
 alias docker="sudo docker"
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias tmuxconf="vim ~/.tmux.conf"
+
+# Python
+alias python=python3.10
+alias pip=pip3
+alias ja="python3 -m jupyter notebook"
+
+# Neo4j
+alias start_neo4j="sudo neo4j start"
+alias stop_neo4j="sudo neo4j stop"
+alias restart_neo4j="sudo neo4j restart"
 
 # Tmux
 alias tmux="TERM=screen-256color-bce tmux"
