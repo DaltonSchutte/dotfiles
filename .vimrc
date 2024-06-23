@@ -52,13 +52,16 @@ nnoremap <space><space>x :call jupyter_ascending#execute()<CR>
 nnoremap <space><space>X :call jupyter_ascending#execute_all()<CR>
 nnoremap <space><space>r :call jupyter_ascending#restart()<CR>
 
-" Jupyter mappings
-" New cell
-:nnoremap <space><space>d o# %%<CR><Esc>:w<CR>
-" Run cell and create new cell
-:nnoremap <space><space>D :call jupyter_ascending#execute()<CR>o# %%<CR><Esc>:w<CR>
+" My Jupyter mappings
+" Update and run cell
+:nnoremap <space><space>d :w<CR>:call jupyter_ascending#execute()<CR>
+" Update and run cell, then create new cell
+:nnoremap <space><space>D :w<CR>:call jupyter_ascending#execute()<CR>o# %%<CR><Esc>:w<CR>
+" Add new cell
+:nnoremap <space><space>n o# %%<CR><Esc>:w<CR>
 " New markdown cell
 :nnoremap <space><space>m o# %% [markdown]<CR><Esc>:w<CR>
+
 
 
 " Colorscheme
