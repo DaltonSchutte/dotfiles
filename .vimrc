@@ -47,6 +47,20 @@ filetype plugin indent on
 :nnoremap k kzz
 :nnoremap G Gzz
 
+" Jupyter ascending mappings
+nnoremap <space><space>x :call jupyter_ascending#execute()<CR>
+nnoremap <space><space>X :call jupyter_ascending#execute_all()<CR>
+nnoremap <space><space>r :call jupyter_ascending#restart()<CR>
+
+" Jupyter mappings
+" New cell
+:nnoremap <space><space>d o# %%<CR><Esc>:w<CR>
+" Run cell and create new cell
+:nnoremap <space><space>D :call jupyter_ascending#execute()<CR>o# %%<CR><Esc>:w<CR>
+" New markdown cell
+:nnoremap <space><space>m o# %% [markdown]<CR><Esc>:w<CR>
+
+
 " Colorscheme
 :set termguicolors
 colorscheme cyberpunk
