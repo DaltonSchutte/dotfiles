@@ -46,6 +46,8 @@ filetype plugin indent on
 :nnoremap j jzz
 :nnoremap k kzz
 :nnoremap G Gzz
+:nnoremap n nzz
+:nnoremap N Nzz
 
 " Jupyter ascending mappings
 nnoremap <space><space>x :call jupyter_ascending#execute()<CR>
@@ -61,8 +63,6 @@ nnoremap <space><space>r :call jupyter_ascending#restart()<CR>
 :nnoremap <space><space>n o# %%<CR><Esc>:w<CR>
 " New markdown cell
 :nnoremap <space><space>m o# %% [markdown]<CR><Esc>:w<CR>
-
-
 
 " Colorscheme
 :set termguicolors
