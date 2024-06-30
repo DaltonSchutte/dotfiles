@@ -6,6 +6,8 @@ source $HOME/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export DISABLE_AUTO_TITLE="true"
+
 ZSH_THEME="darkblood"
 
 COMPLETION_WAITING_DOTS="true"
