@@ -24,6 +24,7 @@ Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'hashivim/vim-terraform'
 Plugin 'thedenisnikulin/vim-cyberpunk'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
