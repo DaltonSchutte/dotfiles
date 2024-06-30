@@ -6,16 +6,17 @@ source $HOME/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export DISABLE_AUTO_TITLE="true"
 
 ZSH_THEME="darkblood"
 
 COMPLETION_WAITING_DOTS="true"
 
+zstyle ':omz"update' mode auto
 
 # VARS
 export NEO4J_HOME="/var/lib/neo4j"
 
+export DISABLE_AUTO_TITLE="true"
 
 # PLUGINS
 
@@ -29,9 +30,9 @@ source $ZSH/oh-my-zsh.sh
 ## ALIASES
 # General
 alias docker="sudo docker"
-alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
-alias tmuxconf="vim ~/.tmux.conf"
+alias ezshrc="vim ~/.zshrc"
+alias evimrc="vim ~/.vimrc"
+alias etmuxconf="vim ~/.tmux.conf"
 
 # Python
 alias python=python3.10
@@ -44,7 +45,7 @@ alias stop_neo4j="sudo neo4j stop"
 alias restart_neo4j="sudo neo4j restart"
 
 # Tmux
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=xterm-color tmux"
 alias tls="tmux ls"
 alias tks="tmux kill-session -t"
 
