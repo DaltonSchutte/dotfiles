@@ -2,37 +2,32 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'dense-analysis/ale'
-Plugin 'kkoomen/vim-doge'
-Plugin 'tmsvg/pear-tree'
-Plugin 'preservim/nerdtree'
-Plugin 'frazrepo/vim-rainbow'
-Plugin 'preservim/nerdcommenter'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'lervag/vimtex'
-Plugin 'SirVer/ultisnips'
-Plugin 'iamcco/markdown-preview.nvim'
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'hashivim/vim-terraform'
-Plugin 'thedenisnikulin/vim-cyberpunk'
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
-Plugin 'untitled-ai/jupyter_ascending.vim'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'dense-analysis/ale'
+Plug 'kkoomen/vim-doge'
+Plug 'tmsvg/pear-tree'
+Plug 'preservim/nerdtree'
+Plug 'frazrepo/vim-rainbow'
+Plug 'preservim/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'prabirshrestha/vim-lsp'
+Plug 'lervag/vimtex'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'iamcco/markdown-preview.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'hashivim/vim-terraform'
+Plug 'thedenisnikulin/vim-cyberpunk'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" All of your Plugs must be added before the following line
+call plug#end()
 
 syntax on
 filetype plugin indent on
@@ -40,8 +35,18 @@ filetype plugin indent on
 " Tabs
 :set tabstop=4 shiftwidth=4 expandtab
 
+" Backspace
+:set backspace=indent,eol,start 
+
 " Line numbers
 :set number relativenumber
+
+" vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='skim'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " Line centering
 :nnoremap j jzz
@@ -50,20 +55,24 @@ filetype plugin indent on
 :nnoremap n nzz
 :nnoremap N Nzz
 
-" Jupyter ascending mappings
-nnoremap <space><space>x :call jupyter_ascending#execute()<CR>
-nnoremap <space><space>X :call jupyter_ascending#execute_all()<CR>
-nnoremap <space><space>r :call jupyter_ascending#restart()<CR>
+" LSP - Ruff
+if executable('ruff')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'ruff',
+        \ 'cmd': {server_info->['ruff', 'server']},
+        \ 'allowlist': ['python'],
+        \ 'workspace_config': {},
+        \ })
+endif
 
-" My Jupyter mappings
-" Update and run cell
-:nnoremap <space><space>d :w<CR>:call jupyter_ascending#execute()<CR>
-" Update and run cell, then create new cell
-:nnoremap <space><space>D :w<CR>:call jupyter_ascending#execute()<CR>o# %%<CR><Esc>:w<CR>
-" Add new cell
-:nnoremap <space><space>n o# %%<CR><Esc>:w<CR>
-" New markdown cell
-:nnoremap <space><space>m o# %% [markdown]<CR><Esc>:w<CR>
+" Haskell-vim
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 " Colorscheme
 :set termguicolors
