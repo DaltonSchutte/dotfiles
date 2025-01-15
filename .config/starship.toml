@@ -1,0 +1,57 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = """
+[░▒▓](#FF0055)\
+[ 󰕈 ](bg:#FF0055 fg:#000000)\
+[](bg:#140007 fg:#FF0055)\
+$directory\
+[](fg:#140007 bg:#2B3E5A)\
+$git_branch\
+$git_status\
+[](fg:#2B3E5A bg:#120b10)\
+$package\
+$python\
+[](fg:#120b10 bg:#120b10)\
+$time\
+[ ](fg:#120b10)\
+\n$character
+"""
+
+[directory]
+style = "fg:#FF0055 bg:#140007"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[character]
+success_symbol = '[➜](bold #6766b3)'
+
+[git_branch]
+symbol = "  "
+style = "bg:#2B3E5A"
+format = '[[ $symbol $branch ](fg:#76C1FF bg:#2B3E5A)]($style)'
+
+[git_status]
+style = "bg:#76C1FF"
+format = '[[($all_status$ahead_behind )](fg:#76C1FF bg:#2B3E5A)]($style)'
+
+[package]
+symbol = " 󰏗 "
+style = "fg:#6766b3"
+format = '[[ $symbol ($version) ](fg:#6766b3 bg:#120b10)]($style)'
+
+[python]
+symbol = "  "
+style = "fg:#00FF9C"
+format = '[[ $symbol ($version) ](fg:#00FF9C bg:#120b10)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#120b10"
+format = '[[  $time ](fg:#fffc58 bg:#120b10)]($style)'
+
+[aws]
+disabled = true
